@@ -1,0 +1,22 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a compilar
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles problemas de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [dbo].[Curso] (Tabla)
+       [dbo].[Estudiante] (Tabla)
+       [dbo].[Matricula] (Tabla)
+       [dbo].[FK_dbo.MAtricula_dbo.Curso_CursoID] (Clave externa)
+       [dbo].[FK_dbo.Matricula_dbo.Estudiante_EstudianteID] (Clave externa)
+
+** Acciones de compatibilidad
+
+Las bases de datos del proyecto y de destino tienen una configuración de intercalación diferente. Se pueden producir errores de implementación.
+
