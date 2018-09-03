@@ -46,7 +46,7 @@ namespace ECCI_IS_Lab01_WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EstudianteID,Apellido,Nombre,FechaMAtricula")] Estudiante estudiante)
+        public ActionResult Create([Bind(Include = "EstudianteID,Apellido,Nombre,FechaMAtricula,CorreoElectronico")] Estudiante estudiante)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ECCI_IS_Lab01_WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EstudianteID,Apellido,Nombre,FechaMAtricula")] Estudiante estudiante)
+        public ActionResult Edit([Bind(Include = "EstudianteID,Apellido,Nombre,FechaMAtricula,CorreoElectronico")] Estudiante estudiante)
         {
             if (ModelState.IsValid)
             {

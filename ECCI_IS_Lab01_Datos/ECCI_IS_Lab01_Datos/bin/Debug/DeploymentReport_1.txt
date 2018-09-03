@@ -1,0 +1,19 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a compilar
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles problemas de datos
+       Ninguno
+
+** Acciones del usuario
+     Modificar
+       [dbo].[Estudiante] (Tabla)
+
+** Acciones de compatibilidad
+
+Si se ejecuta esta implementación, los cambios realizados en [dbo].[Estudiante] podrían generar errores en tiempo de ejecución en [dbo].[eliminarEstudiante].
+Las bases de datos del proyecto y de destino tienen una configuración de intercalación diferente. Se pueden producir errores de implementación.
+

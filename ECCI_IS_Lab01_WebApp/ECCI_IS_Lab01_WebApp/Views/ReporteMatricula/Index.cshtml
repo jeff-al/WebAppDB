@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ECCI_IS_Lab01_WebApp.Models.VistaMatricula>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EstudianteID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatriculaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CursoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstudianteID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatriculaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CursoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota)
+        </td>
+        <td></td>
+    </tr>
+}
+
+</table>

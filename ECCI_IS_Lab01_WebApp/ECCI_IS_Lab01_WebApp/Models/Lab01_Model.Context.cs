@@ -12,6 +12,8 @@ namespace ECCI_IS_Lab01_WebApp.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ECCI_IS_Lab01_DatosEntities : DbContext
     {
@@ -29,5 +31,138 @@ namespace ECCI_IS_Lab01_WebApp.Models
         public virtual DbSet<Curso> Cursoes { get; set; }
         public virtual DbSet<Estudiante> Estudiantes { get; set; }
         public virtual DbSet<Matricula> Matriculas { get; set; }
+        public virtual DbSet<VistaMatricula> VistaMatriculas { get; set; }
+    
+        public virtual int ActualizarNotaEstudiante(string cedula, string siglaC, Nullable<int> numGrupo, string semestre, string anno, Nullable<float> notaNueva)
+        {
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(string));
+    
+            var siglaCParameter = siglaC != null ?
+                new ObjectParameter("SiglaC", siglaC) :
+                new ObjectParameter("SiglaC", typeof(string));
+    
+            var numGrupoParameter = numGrupo.HasValue ?
+                new ObjectParameter("NumGrupo", numGrupo) :
+                new ObjectParameter("NumGrupo", typeof(int));
+    
+            var semestreParameter = semestre != null ?
+                new ObjectParameter("Semestre", semestre) :
+                new ObjectParameter("Semestre", typeof(string));
+    
+            var annoParameter = anno != null ?
+                new ObjectParameter("Anno", anno) :
+                new ObjectParameter("Anno", typeof(string));
+    
+            var notaNuevaParameter = notaNueva.HasValue ?
+                new ObjectParameter("NotaNueva", notaNueva) :
+                new ObjectParameter("NotaNueva", typeof(float));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarNotaEstudiante", cedulaParameter, siglaCParameter, numGrupoParameter, semestreParameter, annoParameter, notaNuevaParameter);
+        }
+    
+        public virtual int ActualizarNotas(string siglaC, Nullable<int> numGrupo, string semestre, string anno, Nullable<float> notaNueva)
+        {
+            var siglaCParameter = siglaC != null ?
+                new ObjectParameter("SiglaC", siglaC) :
+                new ObjectParameter("SiglaC", typeof(string));
+    
+            var numGrupoParameter = numGrupo.HasValue ?
+                new ObjectParameter("NumGrupo", numGrupo) :
+                new ObjectParameter("NumGrupo", typeof(int));
+    
+            var semestreParameter = semestre != null ?
+                new ObjectParameter("Semestre", semestre) :
+                new ObjectParameter("Semestre", typeof(string));
+    
+            var annoParameter = anno != null ?
+                new ObjectParameter("Anno", anno) :
+                new ObjectParameter("Anno", typeof(string));
+    
+            var notaNuevaParameter = notaNueva.HasValue ?
+                new ObjectParameter("NotaNueva", notaNueva) :
+                new ObjectParameter("NotaNueva", typeof(float));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarNotas", siglaCParameter, numGrupoParameter, semestreParameter, annoParameter, notaNuevaParameter);
+        }
+    
+        public virtual int agregarUsuario(string pLogin, string pPassword, string cedula, ObjectParameter estado)
+        {
+            var pLoginParameter = pLogin != null ?
+                new ObjectParameter("pLogin", pLogin) :
+                new ObjectParameter("pLogin", typeof(string));
+    
+            var pPasswordParameter = pPassword != null ?
+                new ObjectParameter("pPassword", pPassword) :
+                new ObjectParameter("pPassword", typeof(string));
+    
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("agregarUsuario", pLoginParameter, pPasswordParameter, cedulaParameter, estado);
+        }
+    
+        public virtual int DesempadronarEstudiante(string cedulaE, string codigoC)
+        {
+            var cedulaEParameter = cedulaE != null ?
+                new ObjectParameter("CedulaE", cedulaE) :
+                new ObjectParameter("CedulaE", typeof(string));
+    
+            var codigoCParameter = codigoC != null ?
+                new ObjectParameter("CodigoC", codigoC) :
+                new ObjectParameter("CodigoC", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DesempadronarEstudiante", cedulaEParameter, codigoCParameter);
+        }
+    
+        public virtual int eliminarEstudiante(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eliminarEstudiante", nombreParameter);
+        }
+    
+        public virtual int EmpadronarEstudiante(string cedulaP, string codigoCP, Nullable<System.DateTime> fechaIngreso)
+        {
+            var cedulaPParameter = cedulaP != null ?
+                new ObjectParameter("CedulaP", cedulaP) :
+                new ObjectParameter("CedulaP", typeof(string));
+    
+            var codigoCPParameter = codigoCP != null ?
+                new ObjectParameter("CodigoCP", codigoCP) :
+                new ObjectParameter("CodigoCP", typeof(string));
+    
+            var fechaIngresoParameter = fechaIngreso.HasValue ?
+                new ObjectParameter("FechaIngreso", fechaIngreso) :
+                new ObjectParameter("FechaIngreso", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EmpadronarEstudiante", cedulaPParameter, codigoCPParameter, fechaIngresoParameter);
+        }
+    
+        public virtual int Login(string pLoginName, string pPassword, ObjectParameter isInDB)
+        {
+            var pLoginNameParameter = pLoginName != null ?
+                new ObjectParameter("pLoginName", pLoginName) :
+                new ObjectParameter("pLoginName", typeof(string));
+    
+            var pPasswordParameter = pPassword != null ?
+                new ObjectParameter("pPassword", pPassword) :
+                new ObjectParameter("pPassword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Login", pLoginNameParameter, pPasswordParameter, isInDB);
+        }
+    
+        public virtual int TotalCarrerasEmpadronado(string cedula)
+        {
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TotalCarrerasEmpadronado", cedulaParameter);
+        }
     }
 }

@@ -34,7 +34,43 @@
             @Html.DisplayFor(model => model.FechaMAtricula)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoElectronico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElectronico)
+        </dd>
+
     </dl>
+    <table class="table">
+    <tr>
+        <th>
+            Course Title 
+        </th> 
+        <th> 
+            Grade 
+        </th> 
+        <th> 
+            Credits 
+        </th> 
+    </tr> 
+    
+    @foreach (var item in Model.Matriculas)
+    {
+        <tr> 
+            <td> 
+                @Html.DisplayFor(modelItem => item.Curso.Titulo) 
+            </td> 
+            <td> 
+                @Html.DisplayFor(modelItem => item.Nota) 
+            </td> 
+            <td> 
+                @Html.DisplayFor(modelItem => item.Curso.Creditos) 
+            </td> 
+        </tr>
+    } 
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EstudianteID }) |

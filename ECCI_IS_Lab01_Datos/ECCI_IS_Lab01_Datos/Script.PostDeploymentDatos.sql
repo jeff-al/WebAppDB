@@ -9,6 +9,16 @@ Plantilla de script posterior a la implementación
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+
+DELETE FROM Curso;
+DBCC CHECKIDENT ('Curso', RESEED, 0);
+
+DELETE FROM Estudiante;
+DBCC CHECKIDENT ('Estudiante', RESEED, 0);
+
+DELETE FROM Matricula;
+DBCC CHECKIDENT ('Matricula', RESEED, 0);
+
 MERGE INTO Curso AS Target
 USING (VALUES
 		(1, 'Ingenieria de Software', 5),
@@ -23,14 +33,14 @@ VALUES (Titulo, Creditos);
 
 MERGE INTO Estudiante AS Target
 USING (VALUES 
-		(1, 'Salas', 'Andrea', '2015-09-01'),
-		(2, 'Guzman', 'Luis', '2016-01-13'),
-		(3, 'Ramirez', 'Erick', '2017-09-03') 
-) AS Source (EstudianteID, Apellido, Nombre, FechaMatricula)
+		(1, 'Salas', 'Andrea', '2015-09-01', 'Andrea.Salas@ecci.ucr.ac.cr'),
+		(2, 'Guzman', 'Luis', '2016-01-13', 'Luis.Guzman@ecci.ucr.ac.cr'),
+		(3, 'Ramirez', 'Erick', '2017-09-03', 'Erick.Ramirez@ecci.ucr.ac.cr') 
+) AS Source (EstudianteID, Apellido, Nombre, FechaMatricula, CorreoElectronico)
 ON Target.EstudianteID = Source.EstudianteID 
 WHEN NOT MATCHED BY TARGET THEN 
-INSERT (Apellido, Nombre, FechaMatricula) 
-VALUES (Apellido, Nombre, FechaMatricula); 
+INSERT (Apellido, Nombre, FechaMatricula, CorreoElectronico) 
+VALUES (Apellido, Nombre, FechaMatricula, CorreoElectronico); 
 
 MERGE INTO Matricula AS Target 
 USING (VALUES 

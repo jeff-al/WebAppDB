@@ -24,6 +24,7 @@ namespace ECCI_IS_Lab01_WebApp.Models
         public string Apellido { get; set; }
         public string Nombre { get; set; }
         public Nullable<System.DateTime> FechaMAtricula { get; set; }
+        public string CorreoElectronico { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Matricula> Matriculas { get; set; }

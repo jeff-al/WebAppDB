@@ -20,6 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.FechaMAtricula)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorreoElectronico)
+        </th>
         <th></th>
     </tr>
 
@@ -33,6 +36,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaMAtricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorreoElectronico)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EstudianteID }) |

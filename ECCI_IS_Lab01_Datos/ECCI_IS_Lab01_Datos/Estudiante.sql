@@ -4,5 +4,6 @@
 	[Apellido]			NVARCHAR (50) NULL,
 	[Nombre]			NVARCHAR (50) NULL,
 	[FechaMAtricula]	DATETIME      NULL,
+	[CorreoElectronico]	NVARCHAR(120) NULL,
 	PRIMARY KEY CLUSTERED ([EstudianteID] ASC)
 )
