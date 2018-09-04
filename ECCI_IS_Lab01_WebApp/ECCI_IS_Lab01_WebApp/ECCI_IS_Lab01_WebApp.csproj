@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\DepartamentoController.cs" />
     <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatriculaController.cs" />
@@ -168,6 +169,9 @@
       <DependentUpon>Lab01_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__RefactorLog.cs">
+      <DependentUpon>Lab01_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departamento.cs">
       <DependentUpon>Lab01_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Estudiante.cs">
@@ -279,6 +283,11 @@
     <Content Include="Views\Estudiante\Index.cshtml" />
     <Content Include="Views\ReporteMatricula\Details.cshtml" />
     <Content Include="Views\ReporteMatricula\Index.cshtml" />
+    <Content Include="Views\Departamento\Create.cshtml" />
+    <Content Include="Views\Departamento\Delete.cshtml" />
+    <Content Include="Views\Departamento\Details.cshtml" />
+    <Content Include="Views\Departamento\Edit.cshtml" />
+    <Content Include="Views\Departamento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

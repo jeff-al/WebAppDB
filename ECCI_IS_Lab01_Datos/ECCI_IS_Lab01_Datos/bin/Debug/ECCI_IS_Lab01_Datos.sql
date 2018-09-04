@@ -40,12 +40,19 @@ USE [$(DatabaseName)];
 
 
 GO
-PRINT N'Creando [dbo].[VistaMatricula]...';
+PRINT N'Creando [dbo].[Departamento_Insert]...';
 
 
 GO
-CREATE VIEW [dbo].[VistaMatricula]
-	AS SELECT * FROM [Matricula]
+CREATE PROCEDURE [dbo].[Departamento_Insert]
+	@Nombre NVARCHAR(50),
+	@Presupuesto float = 0.0
+AS
+	BEGIN 
+		INSERT INTO [Departamento] ([Nombre],[Presupuesto])
+		VALUES (@Nombre, @Presupuesto)
+		END
+RETURN 0
 GO
 /*
 Plantilla de script posterior a la implementación							

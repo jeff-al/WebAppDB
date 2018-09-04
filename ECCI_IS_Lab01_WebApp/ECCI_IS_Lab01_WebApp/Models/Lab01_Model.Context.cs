@@ -32,6 +32,7 @@ namespace ECCI_IS_Lab01_WebApp.Models
         public virtual DbSet<Estudiante> Estudiantes { get; set; }
         public virtual DbSet<Matricula> Matriculas { get; set; }
         public virtual DbSet<VistaMatricula> VistaMatriculas { get; set; }
+        public virtual DbSet<Departamento> Departamentoes { get; set; }
     
         public virtual int ActualizarNotaEstudiante(string cedula, string siglaC, Nullable<int> numGrupo, string semestre, string anno, Nullable<float> notaNueva)
         {
@@ -163,6 +164,19 @@ namespace ECCI_IS_Lab01_WebApp.Models
                 new ObjectParameter("Cedula", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TotalCarrerasEmpadronado", cedulaParameter);
+        }
+    
+        public virtual int Departamento_Insert(string nombre, Nullable<double> presupuesto)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var presupuestoParameter = presupuesto.HasValue ?
+                new ObjectParameter("Presupuesto", presupuesto) :
+                new ObjectParameter("Presupuesto", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Departamento_Insert", nombreParameter, presupuestoParameter);
         }
     }
 }

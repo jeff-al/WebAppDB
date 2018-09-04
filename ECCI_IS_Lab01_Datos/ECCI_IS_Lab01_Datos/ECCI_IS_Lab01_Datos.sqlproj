@@ -63,6 +63,8 @@
     <Build Include="Curso.sql" />
     <Build Include="Matricula.sql" />
     <Build Include="VistaMatricula.sql" />
+    <Build Include="Departamento.sql" />
+    <Build Include="Departamento_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentDatos.sql" />

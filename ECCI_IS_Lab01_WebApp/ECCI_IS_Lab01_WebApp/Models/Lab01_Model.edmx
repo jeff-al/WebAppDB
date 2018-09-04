@@ -19,6 +19,14 @@
           <Property Name="Titulo" Type="nvarchar" MaxLength="50" />
           <Property Name="Creditos" Type="int" />
         </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="DepartamentoId" />
+          </Key>
+          <Property Name="DepartamentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Presupuesto" Type="float" />
+        </EntityType>
         <EntityType Name="Estudiante">
           <Key>
             <PropertyRef Name="EstudianteID" />
@@ -79,9 +87,14 @@ advertencia 6002: La tabla o vista 'DB_B60380.dbo.VistaMatricula' no tiene defin
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Departamento_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="Presupuesto" Type="float" Mode="In" />
+        </Function>
         <EntityContainer Name="ECCI_IS_Lab01DatosModelStoreContainer">
           <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VistaMatricula" EntityType="Self.VistaMatricula" store:Type="Views" store:Schema="dbo">
@@ -225,6 +238,11 @@ advertencia 6002: La tabla o vista 'DB_B60380.dbo.VistaMatricula' no tiene defin
           <FunctionImport Name="TotalCarrerasEmpadronado">
             <Parameter Name="Cedula" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Departamentoes" EntityType="ECCI_IS_Lab01DatosModel.Departamento" />
+          <FunctionImport Name="Departamento_Insert">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Presupuesto" Mode="In" Type="Double" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="VistaMatricula">
           <Key>
@@ -236,6 +254,14 @@ advertencia 6002: La tabla o vista 'DB_B60380.dbo.VistaMatricula' no tiene defin
           <Property Name="Nota" Type="Decimal" Precision="3" Scale="2" />
           <Property Name="CursoID" Type="Int32" Nullable="false" />
           <Property Name="EstudianteID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="DepartamentoId" />
+          </Key>
+          <Property Name="DepartamentoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Presupuesto" Type="Double" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -290,6 +316,24 @@ advertencia 6002: La tabla o vista 'DB_B60380.dbo.VistaMatricula' no tiene defin
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Departamentoes">
+            <EntityTypeMapping TypeName="ECCI_IS_Lab01DatosModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamento">
+                <ScalarProperty Name="Presupuesto" ColumnName="Presupuesto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ECCI_IS_Lab01DatosModel.Departamento">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="ECCI_IS_Lab01DatosModel.Store.Departamento_Insert">
+                  <ScalarProperty Name="Presupuesto" ParameterName="Presupuesto" />
+                  <ScalarProperty Name="Nombre" ParameterName="Nombre" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Departamento_Insert" FunctionName="ECCI_IS_Lab01DatosModel.Store.Departamento_Insert" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -12,6 +12,7 @@
         <AssociationConnector Association="ECCI_IS_Lab01DatosModel.FK_dbo_MAtricula_dbo_Curso_CursoID" ManuallyRouted="false" />
         <AssociationConnector Association="ECCI_IS_Lab01DatosModel.FK_dbo_Matricula_dbo_Estudiante_EstudianteID" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ECCI_IS_Lab01DatosModel.VistaMatricula" Width="1.5" PointX="2.375" PointY="3.375" />
+        <EntityTypeShape EntityType="ECCI_IS_Lab01DatosModel.Departamento" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

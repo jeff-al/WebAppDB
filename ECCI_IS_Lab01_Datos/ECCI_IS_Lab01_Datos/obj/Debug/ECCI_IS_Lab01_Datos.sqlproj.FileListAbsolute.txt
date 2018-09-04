@@ -1,5 +1,0 @@
-C:\Users\Usuario\Desktop\Github\WebAppDB\ECCI_IS_Lab01_Datos\ECCI_IS_Lab01_Datos\bin\Debug\ECCI_IS_Lab01_Datos.dacpac
-C:\Users\Usuario\Desktop\Github\WebAppDB\ECCI_IS_Lab01_Datos\ECCI_IS_Lab01_Datos\bin\Debug\ECCI_IS_Lab01_Datos.dll
-C:\Users\Usuario\Desktop\Github\WebAppDB\ECCI_IS_Lab01_Datos\ECCI_IS_Lab01_Datos\bin\Debug\ECCI_IS_Lab01_Datos.pdb
-C:\Users\Usuario\Desktop\Github\WebAppDB\ECCI_IS_Lab01_Datos\ECCI_IS_Lab01_Datos\obj\Debug\ECCI_IS_Lab01_Datos.dll
-C:\Users\Usuario\Desktop\Github\WebAppDB\ECCI_IS_Lab01_Datos\ECCI_IS_Lab01_Datos\obj\Debug\ECCI_IS_Lab01_Datos.pdb
